@@ -1,0 +1,20 @@
+{
+  "name": "health-profile",
+  "version": "1.0.2",
+  "description": "Health Data Center",
+  "main": "entry.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/siteslave/mkho-hdc",
+  "keywords": [
+    "Electron",
+    "hdc",
+    "EMR"
+  ],
+  "author": "Satit Rianpit",
+  "license": "MIT",
+  "dependencies": {
+    "electron-dl": "^1.8.0"
+  }
+}

@@ -4,11 +4,13 @@
   "description": "Angular-CLI starter for a Clarity project",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
-    "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test --single-run",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor protractor.config.js"
+    "ng": "ng",
+    "start": "concurrently \"cpx config/common.js node_modules/@angular/cli/models/webpack-configs\" \"ng serve\" \"electron src/entry.live.js\"",
+    "run": "electron .",
+    "build": "concurrently \"cpx config/common.js node_modules/@angular/cli/models/webpack-configs\" \"ng build --base-href=./\" \"cpx ./src/entry.js ./dist/\"",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +39,7 @@
     "@angular/compiler-cli": "^4.0.1",
     "@types/core-js": "^0.9.34",
     "@types/jasmine": "~2.2.30",
+    "@types/electron": "^1.4.35",
     "@types/node": "^6.0.42",
     "bootstrap": "4.0.0-alpha.5",
     "codelyzer": "~2.0.0-beta.4",
@@ -45,6 +48,9 @@
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
     "karma-cli": "^1.0.1",
+    "concurrently": "^3.4.0",
+    "cpx": "^1.5.0",
+    "electron": "^1.6.11",
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.2.1",
     "karma-phantomjs-launcher": "^1.0.0",
